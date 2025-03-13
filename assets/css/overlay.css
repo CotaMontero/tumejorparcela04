@@ -1,0 +1,179 @@
+/* Modal oculto por defecto */
+.overlay-proximo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.651);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+/* Mostrar el modal al hacer hover sobre la imagen del slider */
+.slide-wrapper:hover .overlay-proximo {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Efectos de transición para los elementos dentro del modal */
+.overlay-proximo .modal-content-left,
+.overlay-proximo .modal-content-right {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.slide-wrapper:hover .overlay-proximo .modal-content-left,
+.slide-wrapper:hover .overlay-proximo .modal-content-right {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Pequeño retraso para el contenido derecho */
+.slide-wrapper:hover .overlay-proximo .modal-content-right {
+    transition-delay: 0.1s;
+}
+
+/* Asegura que el slide-wrapper tenga posición relativa para el modal absoluto */
+.overlay-proximo .slide-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Estilos para el contenido dentro del modal */
+.overlay-proximo h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    letter-spacing: .1rem;
+}
+
+.overlay-proximo p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.overlay-proximo ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.overlay-proximo li {
+    font-size: 1rem;
+}
+
+.overlay-proximo .modal-content-left, 
+.overlay-proximo .modal-content-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.overlay-proximo .modal-content-left {
+    text-align: center;
+}
+
+.overlay-proximo .modal-content-right {
+    text-align: center;
+}
+.overlay-proximo .btn-primary-modal {
+    display: inline-block;
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    background-color: #FFF2C5;
+    text-decoration: none;
+    border-radius: 0px;
+    align-self: center; /* Centra el botón verticalmente en su contenedor */
+}
+/* Adaptación para móviles */
+@media (max-width: 768px) {
+    .overlay-proximo {
+        grid-template-columns: 1fr; /* Una sola columna en móviles */
+        gap: .2rem;
+        padding: 3rem;
+        font-size: 1rem;
+    }
+
+    .overlay-proximo .modal-content-left, 
+    .overlay-proximo .modal-content-right {
+        text-align: center;
+    }
+
+    /* Ajustar el tamaño del texto del modal en pantallas pequeñas */
+    .overlay-proximo p {
+        font-size: 1rem; /* Tamaño más pequeño en dispositivos móviles */
+    }
+
+    .overlay-proximo ul {
+        padding-left: 20px; /* Alineación de la lista */
+    }
+
+ @media (max-width: 480px) {
+        .overlay-proximo {
+            grid-template-columns: 1fr; /* Una sola columna en móviles */
+            gap: .2rem;
+            padding: 1.5rem;
+            font-size: .5rem;
+        }
+    
+        .overlay-proximo .modal-content-left, 
+        .overlay-proximo .modal-content-right {
+            text-align: center;
+        }
+    
+        /* Ajustar el tamaño del texto del modal en pantallas pequeñas */
+        .overlay-proximo h1,
+        .overlay-proximo p {
+            font-size: 1rem; /* Tamaño más pequeño en dispositivos móviles */
+        }
+    
+        .overlay-proximo ul {
+            padding-left: 20px; /* Alineación de la lista */
+        }
+
+    /* Ajustar la imagen del slider para que no se distorsione en dispositivos móviles */
+    .overlay-proximo .slide-wrapper img {
+        object-fit: cover; /* Mantiene la proporción de la imagen */
+        height: 100%; /* Ocupa toda la altura del contenedor */
+    }
+}
+
+/* Ajustes para el botón */
+.overlay-proximo .btn-primary-modal {
+    display: inline-block;
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: rgb(0, 0, 0);
+    background-color: #FFF2C5;
+    text-decoration: none;
+    border-radius: 0px;
+    align-self: center; /* Centra el botón verticalmente en su contenedor */
+}
+
+.overlay-proximo .btn-primary-modal:hover {
+    background-color: #FFF2C5;  /* Cambia el color cuando se pasa el mouse */
+}
+
+/* Asegurar que los títulos también sean blancos */
+.overlay-proximo h1,
+.overlay-proximo h2,
+.overlay-proximo h3,
+.overlay-proximo p,
+.overlay-proximo li {
+    color: white;
+}
+}
